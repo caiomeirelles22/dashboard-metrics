@@ -1,0 +1,108 @@
+{
+    "metrics": [
+        {
+            "label": "Total de Clientes",
+            "value": 1248,
+            "type": "number",
+            "change": 12.5
+        },
+        {
+            "label": "Receita Mensal",
+            "value": 85200,
+            "type": "currency",
+            "change": 8.2
+        },
+        {
+            "label": "Taxa de Conversão",
+            "value": 3.4,
+            "type": "percentage",
+            "change": -1.4
+        }
+    ],
+    "campaigns": [
+        {
+            "id": "1",
+            "name": "Black Friday 2024",
+            "channel": "googleAds",
+            "status": "active",
+            "investment": 15400
+        },
+        {
+            "id": "2",
+            "name": "Lançamento Verão",
+            "channel": "instagram",
+            "status": "active",
+            "investment": 8200
+        },
+        {
+            "id": "3",
+            "name": "Remarketing Q3",
+            "channel": "facebookAds",
+            "status": "paused",
+            "investment": 4500
+        },
+        {
+            "id": "4",
+            "name": "Campanha Institucional",
+            "channel": "googleAds",
+            "status": "active",
+            "investment": 12000
+        },
+        {
+            "id": "5",
+            "name": "Newsletter Semanal",
+            "channel": "email",
+            "status": "active",
+            "investment": 1500
+        },
+        {
+            "id": "6",
+            "name": "Promoção Relâmpago",
+            "channel": "instagram",
+            "status": "paused",
+            "investment": 3000
+        },
+        {
+            "id": "7",
+            "name": "Lead Gen B2B",
+            "channel": "googleAds",
+            "status": "active",
+            "investment": 22000
+        },
+        {
+            "id": "8",
+            "name": "Inbound Marketing",
+            "channel": "facebookAds",
+            "status": "active",
+            "investment": 5600
+        },
+        {
+            "id": "9",
+            "name": "Influenciadores Tech",
+            "channel": "instagram",
+            "status": "paused",
+            "investment": 11000
+        },
+        {
+            "id": "10",
+            "name": "E-mail Boas Vindas",
+            "channel": "email",
+            "status": "active",
+            "investment": 800
+        },
+        {
+            "id": "11",
+            "name": "Webinar Mensal",
+            "channel": "googleAds",
+            "status": "active",
+            "investment": 3200
+        },
+        {
+            "id": "12",
+            "name": "Retenção Q4",
+            "channel": "email",
+            "status": "paused",
+            "investment": 1200
+        }
+    ]
+}
