@@ -1,6 +1,7 @@
 import React from "react";
-import { getDashboardData } from "../services/dashboardService";
-import { MetricCard } from "../components/dashboard/MetricCard";
+import { getDashboardData } from "@/services/dashboardService";
+import { MetricCard } from "@/components/dashboard/MetricCard";
+import { CampaignTable } from "@/components/dashboard/CampaignTable";
 
 export default async function Home() {
   const data = await getDashboardData();
@@ -8,26 +9,33 @@ export default async function Home() {
   return (
     <main className="min-h-screen bg-slate-50 p-6 dark:bg-slate-950 md:p-8">
       <div className="mx-auto max-w-7xl space-y-8">
-        <div>
+        <header>
           <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-50">
             Visão Geral
           </h1>
           <p className="mt-2 text-slate-500 dark:text-slate-400">
-            Acompanhe o desempenho das suas campanhas B2B.
+            Acompanhe o desempenho das suas campanhas B2B em tempo real.
           </p>
-        </div>
+        </header>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {data.metrics.map((metric, index) => (
             <MetricCard
-              key={index}
+              key={`metric-${index}`}
               title={metric.label}
               value={metric.value}
               type={metric.type}
               change={metric.change}
             />
           ))}
-        </div>
+        </section>
+
+        <section>
+          <h2 className="mb-4 text-xl font-bold tracking-tight text-slate-900 dark:text-slate-50">
+            Desempenho por Campanha
+          </h2>
+          <CampaignTable campaigns={data.campaigns} />
+        </section>
       </div>
     </main>
   );
