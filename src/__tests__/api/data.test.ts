@@ -1,10 +1,24 @@
 import { GET } from "@/app/api/data/route";
 import { DashboardData } from "@/types/dashboard";
 
+interface MockResponse {
+  status: number;
+  json: () => Promise<DashboardData>;
+}
+
+jest.mock("next/server", () => ({
+  NextResponse: {
+    json: (body: unknown, init?: ResponseInit) => ({
+      status: init?.status ?? 200,
+      json: async () => body,
+    }),
+  },
+}));
+
 describe("API /api/data", () => {
   it("deve retornar os dados do dashboard com a estrutura correta", async () => {
-    const response = await GET();
-    const data: DashboardData = await response.json();
+    const response = (await GET()) as unknown as MockResponse;
+    const data = await response.json();
 
     expect(response.status).toBe(200);
 
