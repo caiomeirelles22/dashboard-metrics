@@ -4,6 +4,7 @@ import { DashboardFilters } from "../components/dashboard/DashboardFilters";
 import { BarChart3, ListFilter } from "lucide-react";
 import DashboardSkeletons from "@/components/skeletons/DashboardSkeletons";
 import { DashboardContent } from "@/components/dashboard/DashboardContent";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 interface PageProps {
   searchParams: Promise<{
@@ -34,6 +35,7 @@ export default async function Home({ searchParams }: PageProps) {
             Visualize o desempenho e a alocação de investimento das suas
             campanhas.
           </p>
+          <ThemeToggle />
         </header>
 
         <section className="space-y-4">
