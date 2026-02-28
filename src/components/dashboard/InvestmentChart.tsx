@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useMemo } from "react";
 import {
   BarChart,
   Bar,
@@ -11,14 +11,8 @@ import {
   ResponsiveContainer,
   Rectangle,
 } from "recharts";
-import { Campaign } from "../../types/dashboard";
-
-const formatCurrencyBRL = (value: number): string => {
-  return new Intl.NumberFormat("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  }).format(value);
-};
+import { Campaign } from "@/types/dashboard";
+import { formatCurrency } from "@/lib/formatters";
 
 interface InvestmentChartProps {
   campaigns: Campaign[];
@@ -31,10 +25,6 @@ interface BarShapeProps {
   height?: number;
   index?: number;
   fill?: string;
-  payload?: {
-    name: string;
-    value: number;
-  };
 }
 
 const COLORS = ["#3b82f6", "#10b981", "#f59e0b", "#ef4444", "#8b5cf6"];
@@ -46,8 +36,12 @@ const channelLabels: Record<string, string> = {
   email: "E-mail",
 };
 
+/**
+
+ * @param campaigns
+ */
 export function InvestmentChart({ campaigns }: InvestmentChartProps) {
-  const data = React.useMemo(() => {
+  const data = useMemo(() => {
     if (!campaigns || campaigns.length === 0) return [];
 
     const groups = campaigns.reduce(
@@ -67,8 +61,8 @@ export function InvestmentChart({ campaigns }: InvestmentChartProps) {
 
   if (data.length === 0) {
     return (
-      <div className="flex h-72 items-center justify-center rounded-xl border border-dashed border-slate-300 bg-white dark:border-slate-800 dark:bg-slate-900">
-        <p className="text-sm text-slate-500 font-medium">
+      <div className="flex h-72 flex-col items-center justify-center rounded-xl border border-dashed border-slate-300 bg-white dark:border-slate-800 dark:bg-slate-900">
+        <p className="text-sm font-medium text-slate-500">
           Sem dados de investimento para os filtros selecionados.
         </p>
       </div>
@@ -127,11 +121,9 @@ export function InvestmentChart({ campaigns }: InvestmentChartProps) {
               formatter={(
                 value: number | string | (number | string)[] | undefined,
               ) => {
-                if (value === undefined)
-                  return [formatCurrencyBRL(0), "Investimento"];
                 const numericValue =
                   typeof value === "number" ? value : Number(value) || 0;
-                return [formatCurrencyBRL(numericValue), "Investimento"];
+                return [formatCurrency(numericValue), "Investimento"];
               }}
             />
             <Bar
