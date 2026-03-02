@@ -8,12 +8,6 @@ export function formatCurrency(value: number): string {
 export function formatNumber(value: number): string {
   return new Intl.NumberFormat("pt-BR").format(value);
 }
-
-/**
-
- * @param value 
- * @param options 
- */
 export function formatPercentage(
   value: number,
   options?: { showSign?: boolean },

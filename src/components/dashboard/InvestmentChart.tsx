@@ -36,10 +36,6 @@ const channelLabels: Record<string, string> = {
   email: "E-mail",
 };
 
-/**
-
- * @param campaigns
- */
 export function InvestmentChart({ campaigns }: InvestmentChartProps) {
   const data = useMemo(() => {
     if (!campaigns || campaigns.length === 0) return [];

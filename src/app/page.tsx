@@ -13,6 +13,8 @@ interface PageProps {
   }>;
 }
 
+export const revalidate = 1800; //30 min.
+
 export default async function Home({ searchParams }: PageProps) {
   const filters = await searchParams;
 
