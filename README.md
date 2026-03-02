@@ -1,6 +1,6 @@
 # Performance Analytics - Dashboard de Métricas B2B
 
-Este é um painel de controlo moderno e de alto desempenho desenvolvido para visualização de métricas de marketing B2B. O projeto foi construído utilizando o estado da arte do ecossistema React, com foco absoluto em Server Components, tipagem estrita e uma experiência de utilizador premium.
+Este é um painel de controle moderno e de alto desempenho desenvolvido para visualização de métricas de marketing B2B. O projeto foi construído utilizando o estado da arte do ecossistema React, com foco absoluto em Server Components, tipagem estrita e uma experiência de utilizador premium.
 https://dashboard-metrics-nu.vercel.app/
 ## Tecnologias Utilizadas
 Framework: Next.js 16.1 (App Router)
