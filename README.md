@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Performance Analytics - Dashboard de Métricas B2B
 
-## Getting Started
+Este é um painel de controlo moderno e de alto desempenho desenvolvido para visualização de métricas de marketing B2B. O projeto foi construído utilizando o estado da arte do ecossistema React, com foco absoluto em Server Components, tipagem estrita e uma experiência de utilizador premium.
+https://dashboard-metrics-nu.vercel.app/
+## Tecnologias Utilizadas
+Framework: Next.js 16.1 (App Router)
+Linguagem: TypeScript 5.x
+Estilização: Tailwind CSS v4 (Engine de alto desempenho)
+Gráficos: Recharts
+Notificações: Sonner
+Ícones: Lucide React
+Ambiente de Testes: Jest & React Testing Library
+## Metodologia e Arquitetura
+O projeto foi desenvolvido seguindo padrões rigorosos de engenharia de software:
+TDD (Test Driven Development): O desenvolvimento foi 100% guiado por testes, garantindo estabilidade e permitindo refactorizações seguras desde o primeiro commit.
+Princípios SOLID: Arquitetura focada na manutenção e escalabilidade, respeitando o Princípio da Responsabilidade Única (SRP) e a Inversão de Dependência.
+Server-First Logic: A filtragem e o processamento de dados ocorrem prioritariamente no servidor, reduzindo o bundle size enviado ao cliente.
+Mobile First & Dark Mode: Layout responsivo por padrão (utilizando a metodologia mobile-first do Tailwind) e suporte nativo a tema escuro para uma estética visual de excelência desde o início.
+## Funcionalidades Chave
+Estado Persistente na URL: Utiliza useSearchParams para que todos os filtros aplicados (status, canal) sejam refletidos no URL. Isto permite que os links sejam totalmente compartilháveis, mantendo a visualização idêntica para outros utilizadores.
+Performance Otimizada: Implementação de ISR (Incremental Static Regeneration) com revalidação de 30 minutos.
+## UX Fluida: Uso de React.Suspense com esqueletos de carregamento personalizados (Skeletons) para transições de estado sem interrupções.
+Prevenção de Flicker: Script inline no carregamento inicial para deteção de tema (Dark/Light) antes do render do CSS.
+## Como Executar o Projeto
+Clonar o repositório:
+git clone [https://github.com/caiomeirelles22/dashboard-metrics.git](https://github.com/caiomeirelles22/dashboard-metrics.git)
 
-First, run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+#Instalar as dependências:
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```bash
+#Executar em ambiente de desenvolvimento:
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+#Executar os testes (Ciclo TDD):
+npm run test
+```
+```bash
+#Build para produção:
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Estrutura de Dados (TypeScript)
+O projeto utiliza interfaces estritas para garantir a integridade dos dados:
+Metric: KPIs principais (Receita, ROI, Leads).
+Campaign: Listagem de campanhas com estados e canais tipados.
+Investment: Estrutura de séries temporais para o gráfico de investimentos.
+Desenvolvido com foco em qualidade e performance por Caio Meirelles.
